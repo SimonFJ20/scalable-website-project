@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
     "target": "es5",
-    "module": "ESNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "allowJs": true
   },
-  "include": ["src/**/*"]
+  "files": [
+    "src/index.ts"
+  ]
 }
