@@ -1,8 +1,8 @@
 import App from "./app";
+import { importCSS } from "./framework";
 
 const htmlAppTag = document.getElementsByTagName('framework-app')[0];
-const headerStyle = document.createElement('style');
-document.head.appendChild(headerStyle);
+importCSS('./main.css');
 
 if(htmlAppTag != null) {
     htmlAppTag.innerHTML = App();

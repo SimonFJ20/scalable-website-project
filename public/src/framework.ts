@@ -7,7 +7,3 @@ export const importCSS = (url: string): void => {
     css.href = url;
     document.head.appendChild(css);
 }
-
-export const addCSS = (css: string): void => {
-    document.getElementsByTagName('style')[0].innerHTML += css;
-}

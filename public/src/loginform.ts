@@ -1,7 +1,7 @@
 import { html } from "./framework";
 
 const Loginform = () => {
-    return html(`
+    return html(/*html*/`
     <div id="loginform">
         <input id="username" type="text" placeholder="Username">
         <br>
