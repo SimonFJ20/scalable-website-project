@@ -1,7 +1,68 @@
+:root {
+    --bgColor1: rgb(60, 60, 60);
+    --bgColor2: rgb(40, 40, 40);
+    --bgColor3: rgb(20, 20, 20);
+
+    --textColor1: rgb(255, 255, 255);
+    
+    --textColorReverse1: rgb(0, 0, 0);
+
+    --borderColor1: rgb(255, 0, 0);
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(80, 80, 80);
-    color: white;
+    background-color: var(--bgColor1);
+    color: var(--textColor1);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#topbar {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: var(--bgColor2);
+    border-bottom: 4px solid var(--borderColor1);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#topbar .title {
+    width: 20%;
+}
+#topbar .elements {
+    width: 79%;
+    text-align: right;
+    display: block;
+    padding-top: 10px;
+}
+#topbar h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    display: inline;
+    white-space: nowrap;
+}
+#topbar .button {
+    margin: 0;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: var(--bgColor3);
+    color: var(--borderColor1);
+    border: 4px solid var(--borderColor1);
+    border-radius: 25px;
+    text-decoration: none;
+}#topbar .button:hover {
+    background-color: var(--borderColor1);
+    color: var(--textColorReverse1);
+}#topbar .button:active {
+    color: var(--textColor1);
 }
