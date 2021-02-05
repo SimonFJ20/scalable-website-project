@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "ESNext",
+        "module": "ES6",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "removeComments": true,
         "outDir": "temp",
-        "watch": true
+        "watch": true,
+        "jsx": "react"
     },
     "include": ["src/**/*"],
 }
