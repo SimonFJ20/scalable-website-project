@@ -1,7 +1,7 @@
-import { html, importCSS } from './framework.ts';
+import { html, importCSS } from './framework';
 import Loginform from './loginform';
 
-const App = () => {
+const App = (): string => {
     importCSS('./style.css');
     return html(`
     ${Loginform()}
