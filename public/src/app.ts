@@ -1,9 +1,9 @@
 import { html, DOM } from './framework';
-import { Topbar, State } from './topbar';
+import { Topbar } from './topbar';
 
 export const App = (): string => {
     DOM.setTitle('App');
     return html(`
-    ${Topbar({state: State.Autherized})}
+    ${Topbar({autherized: true})}
     `);
 }

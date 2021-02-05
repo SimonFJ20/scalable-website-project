@@ -1,19 +1,15 @@
 import { html } from "./framework";
 
-export enum State {
-    Unautherized,
-    Autherized
-}
-
 class Props {
-    state: State = State.Unautherized;
+    autherized: boolean = false;
 }
 
 export const Topbar = (props: Props) => {
-    if(props.state === State.Unautherized) {
+    if(props.autherized === false) {
         return html(/*html*/`
         <div id="topbar">
             <div class="title">
+                <img src="./assets/favicon-32x32.png">
                 <h1>Framework App</h1>
             </div>
             <div class="elements">
@@ -21,10 +17,11 @@ export const Topbar = (props: Props) => {
             </div>
         </div>
         `);
-    }else if(props.state === State.Autherized) {
+    }else if(props.autherized === true) {
         return html(/*html*/`
         <div id="topbar">
             <div class="title">
+                <img src="./assets/favicon-32x32.png">
                 <h1>Framework App</h1>
             </div>
             <div class="public">
