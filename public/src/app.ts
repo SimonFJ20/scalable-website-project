@@ -4,6 +4,6 @@ import { Topbar, State } from './topbar';
 export const App = (): string => {
     DOM.setTitle('App');
     return html(`
-    ${Topbar({state: State.Unautherized})}
+    ${Topbar({state: State.Autherized})}
     `);
 }

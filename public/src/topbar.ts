@@ -10,14 +10,33 @@ class Props {
 }
 
 export const Topbar = (props: Props) => {
-    return html(/*html*/`
-    <div id="topbar">
-        <div class="title">
-            <h1>Framework App</h1>
+    if(props.state === State.Unautherized) {
+        return html(/*html*/`
+        <div id="topbar">
+            <div class="title">
+                <h1>Framework App</h1>
+            </div>
+            <div class="elements">
+                <a href="/" class="button">Login</a>
+            </div>
         </div>
-        <div class="elements">
-            <a href="/" class="button">Login</a>
+        `);
+    }else if(props.state === State.Autherized) {
+        return html(/*html*/`
+        <div id="topbar">
+            <div class="title">
+                <h1>Framework App</h1>
+            </div>
+            <div class="public">
+                <a href="/" class="button">My Profile</a>
+                <a href="/" class="button">My Profile</a>
+                <a href="/" class="button">My Profile</a>
+            </div>
+            <div class="private">
+                <a href="/" class="button">My Profile</a>
+            </div>
         </div>
-    </div>
-    `)
+        `);
+    }
+    
 };

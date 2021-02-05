@@ -33,8 +33,14 @@ body {
 #topbar .title {
     width: 20%;
 }
-#topbar .elements {
-    width: 79%;
+#topbar .public {
+    width: 40%;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+}
+#topbar .private {
+    width: 39%;
     text-align: right;
     display: block;
     padding-top: 10px;
@@ -46,7 +52,7 @@ body {
     display: inline;
     white-space: nowrap;
 }
-#topbar .button {
+#topbar .private .button {
     margin: 0;
     padding: 5px;
     padding-left: 30px;
@@ -59,7 +65,22 @@ body {
     color: var(--textColorReverse1);
     border-radius: 25px;
     text-decoration: none;
-}#topbar .button:hover {
+}#topbar .private .button:hover {
     background-color: var(--bgColor3);
     color: var(--textColorReverse1);
+}
+#topbar .public .button {
+    text-decoration: none;
+    color: var(--textColor1);
+    background-color: var(--bgColor2);
+    border-left: 1px var(--borderColor1) solid;
+    border-right: 1px var(--borderColor1) solid;
+    padding: 10px;
+    font-size: 20px;
+}#topbar .public .button:hover {
+    background-color: var(--bgColor3);
+}#topbar .public .button:first-child {
+    border-left: 0;
+}#topbar .public .button:last-child {
+    border-right: 0;
 }
