@@ -1,11 +1,9 @@
 import { html, DOM } from './framework';
-import Topbar from './topbar';
+import { Topbar, State } from './topbar';
 
-const App = (): string => {
+export const App = (): string => {
     DOM.setTitle('App');
     return html(`
-    ${Topbar()}
+    ${Topbar({state: State.Unautherized})}
     `);
 }
-
-export default App;

@@ -11,5 +11,3 @@ const Loginform = () => {
     </div>
     `);
 }
-
-export default Loginform;
