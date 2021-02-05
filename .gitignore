@@ -1,4 +1,4 @@
 /server/node_modules/
 /public/node_modules/
-/public/src/*.js
+/public/temp/
 .env
