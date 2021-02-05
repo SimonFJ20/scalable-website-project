@@ -1,1 +1,4 @@
-module.exports = {}
+module.exports = {
+    mode: "production",
+    entry: "./src/index.ts"
+}
