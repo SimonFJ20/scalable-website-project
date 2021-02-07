@@ -16,4 +16,3 @@ server.use(express_1.default.static(path_1.default.join(__dirname, '../public/di
 server.listen(port, () => {
     console.log('Express on', port);
 });
-//# sourceMappingURL=index.js.map

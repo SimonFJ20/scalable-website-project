@@ -13,4 +13,3 @@ router.get('/login', (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../public/dist/index.html'));
 });
 exports.default = router;
-//# sourceMappingURL=routes.js.map
