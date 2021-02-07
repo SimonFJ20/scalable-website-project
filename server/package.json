@@ -13,10 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.25",
     "@webpack-cli/init": "^1.1.3",
