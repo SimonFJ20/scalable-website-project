@@ -1,4 +1,4 @@
-import { html } from "./framework";
+import { html } from "../framework";
 
 class Props {
     autherized: boolean = false;
@@ -12,7 +12,9 @@ export const Topbar = (props: Props) => {
                 <img src="./assets/favicon-32x32.png">
                 <h1>Framework App</h1>
             </div>
-            <div class="elements">
+            <div class="public">
+            </div>
+            <div class="private">
                 <a href="/" class="button">Login</a>
             </div>
         </div>

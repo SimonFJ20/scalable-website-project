@@ -1,4 +1,4 @@
-import { html } from "./framework";
+import { html } from "../framework";
 
 const Loginform = () => {
     return html(/*html*/`
