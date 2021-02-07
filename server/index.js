@@ -2,10 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
+const router = require('./routes');
+
 const server = express();
 const port = 80;
 server.use(cors());
 server.use(express.json());
+
+server.use('/', router);
+
 server.use(express.static(path.join(__dirname, '../public/dist')));
 
 server.listen(port, () => {
