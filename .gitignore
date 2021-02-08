@@ -3,3 +3,4 @@
 /public/temp/
 .env
 server/.env
+server/*.js
