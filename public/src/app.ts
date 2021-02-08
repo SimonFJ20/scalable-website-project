@@ -1,28 +1,17 @@
 import { html, DOM, makeid } from './framework';
-import { Topbar } from './components/topbar';
+import { Landing } from './routes/landing';
 
 export const App = (): string => {
     DOM.setTitle('App');
 
-    sessionStorage.setItem('id', makeid(8));
-
-    console.log(window.location.pathname)
-
     switch(window.location.pathname) {
         case '/':
-            return html(`
-            ${Topbar({autherized: true})}
-            `);
-            break;
+            return html(`${Landing({authorized: true})}`);
+
         case '/login':
-            return html(`
-            ${Topbar({autherized: false})}
-            `);
-            break;
+            return html(`${Landing({authorized: false})}`);
+
         default:
-            return html(`
-            ${Topbar({autherized: false})}
-            `);
-            break;
+            return html(`${Landing({authorized: false})}`);
     }
 }

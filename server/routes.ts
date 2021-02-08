@@ -11,5 +11,13 @@ router.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/dist/index.html'))
 });
 
+router.get('/feed', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+});
+
+router.get('/friends', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+});
+
 
 export default router;
