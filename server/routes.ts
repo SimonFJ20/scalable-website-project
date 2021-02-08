@@ -3,20 +3,24 @@ import path from 'path';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+router.get('/', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    res.status(200);
 });
 
-router.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+router.get('/login', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    res.status(200);
 });
 
-router.get('/feed', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+router.get('/feed', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    res.status(200);
 });
 
-router.get('/friends', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/dist/index.html'))
+router.get('/friends', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    res.status(200);
 });
 
 

@@ -20,6 +20,28 @@ export class DOM {
 
 /* Miscellaneous utilities */
 
+async function postData(url = '', data: object) {
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+  
+postData('https://example.com/answer', { answer: 42 })
+.then(data => {
+    console.log(data);
+});
+  
+
 export const makeid = (length: number): string => {
     let id = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -27,4 +49,4 @@ export const makeid = (length: number): string => {
        id += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return id;
- }
+}
