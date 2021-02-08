@@ -1,6 +1,6 @@
 import { html } from "../framework";
 
-const Loginform = () => {
+export const Loginform = () => {
     return html(/*html*/`
     <div id="loginform">
         <input id="username" type="text" placeholder="Username">
