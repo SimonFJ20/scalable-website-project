@@ -1,4 +1,6 @@
 
+/* All this may be overwritten */
+
 const authKey = 'frameworkappauth';
 
 export const checkClientAuth = (): boolean => {
@@ -10,7 +12,7 @@ export const checkClientAuth = (): boolean => {
 }
 
 export const setClientAuth = (): void => {
-    sessionStorage.setItem(authKey, '0');
+    sessionStorage.setItem(authKey, 'true');
 }
 
 export const removeClientAuth = (): void => {

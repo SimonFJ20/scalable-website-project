@@ -1,5 +1,5 @@
 import { checkClientAuth, setClientAuth } from './auth';
-import { html, DOM, makeid } from './framework';
+import { html, DOM } from './framework';
 import { Landing } from './routes/landing';
 
 export const App = (): string => {
