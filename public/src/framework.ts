@@ -36,10 +36,10 @@ async function postData(url: string, data: object) {
     return response.json();
 }
   
-postData('https://example.com/answer', { answer: 42 })
+/*postData('https://example.com/answer', { answer: 42 })
 .then(data => {
     console.log(data);
-});
+});*/
   
 
 export const makeid = (length: number): string => {

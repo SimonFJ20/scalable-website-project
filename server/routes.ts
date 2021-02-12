@@ -3,6 +3,8 @@ import path from 'path';
 
 const router = express.Router();
 
+/* Main routes */
+
 router.get('/', async (req, res) => {
     res.sendFile(path.join(__dirname, '../public/dist/index.html'));
     res.status(200);
@@ -19,6 +21,15 @@ router.get('/feed', async (req, res) => {
 });
 
 router.get('/friends', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    res.status(200);
+});
+
+
+
+/* Special routes */
+
+router.get('/todo', async (req, res) => {
     res.sendFile(path.join(__dirname, '../public/dist/index.html'));
     res.status(200);
 });

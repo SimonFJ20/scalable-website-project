@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timers</title>
+    <style>
+        input[type=checkbox]
+        {
+          /* Double-sized Checkboxes */
+          -ms-transform: scale(2); /* IE */
+          -moz-transform: scale(2); /* FF */
+          -webkit-transform: scale(2); /* Safari and Chrome */
+          -o-transform: scale(2); /* Opera */
+          transform: scale(2);
+          padding: 10px;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(80, 80, 80);
+            overflow: hidden;
+        }
+        
+        body * {
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+        
+        
+        #content {
+            margin: 0;
+            padding: 0;
+            margin-left: 20%;
+            margin-right: 20%;
+            background-color: rgb(200, 200, 200);
+            height: 100vh;
+            text-align: center;
+            border: 1px solid black;
+            overflow-y: auto;
+        }
+        
+        .box {
+            text-align: center;
+            margin: 15px;
+            padding: 15px;
+            background-color: rgb(80, 80, 80);
+            border: 1px solid black;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        input {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        textarea {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            width: 98%;
+            height: 20px;
+            background: white;
+            white-space: nowrap;
+            overflow: auto;
+        }
+        
+        #ftitle {
+            width: 77%;
+        }
+        
+        #fsubmit {
+            width: 20%;
+        }
+        #fsubmit:hover {
+            background-color: darkgray;
+            cursor: pointer;
+        }
+        
+        
+        
+        .fcheck {
+            margin: 15px;
+            color: blue;
+        
+        }
+        
+        .fdelete {
+            margin-right: 30%;
+            margin-bottom: 15px;
+        }
+        
+        .fdelete:hover {
+            background-color: darkgray;
+            cursor: pointer;
+        }
+        
+        
+        #create {
+            background-color: rgb(0, 89, 124);
+        }
+        </style>
+</head>
+<body>
+    <div id="content">
+        <div class="box" id="create">
+            <input type="button" id="fsubmit" value="Submit">
+            <input type="text" id="ftitle" placeholder="Title">
+        </div>
+        <hr>
+
+        <div id="todos">
+
+        </div>
+
+    </div>
+    <script>
+        const id = (id) => document.getElementById(id); 
+        
+        
+        const getchecked = (state) => {
+            if(state) return 'checked';
+            else return '';
+        }
+        
+        const todoElement = (o) => `<div class="box" id="element">
+        <textarea class="ftext" readonly>${o.title}</textarea><br>
+        <input type="button" class="fdelete" value="Delete" id="${o.id}delete">
+        <input type="checkbox" class="fcheck" id="${o.id}check" ${getchecked(o.state)}>
+        </div>`;
+        
+        let g = []
+        if(localStorage.getItem('apptodos') != null) {
+            g = JSON.parse(localStorage.getItem('apptodos'));
+        }
+        
+        const render = () => {
+            id('todos').innerHTML = g.map(o=>todoElement(o)).join('');
+            g.map((o, i) => {
+                let no = o;
+                id(`${no.id}delete`).addEventListener('click', () => {
+                    g = g.slice(0, i).concat(g.slice(i+1));
+                    localStorage.setItem('apptodos', JSON.stringify(g));
+                    render();
+                });
+                id(`${no.id}check`).addEventListener('click', () => {
+                    no.state = id(`${no.id}check`).checked;
+                    g[i] = no;
+                    localStorage.setItem('apptodos', JSON.stringify(g));
+                });
+            });
+            localStorage.setItem('apptodos', JSON.stringify(g));
+        }
+        
+        
+        id('fsubmit').addEventListener('click', (e) => {
+            g.push({state: false, title: id('ftitle').value, id: Math.floor(Math.random() * 100)});
+        
+            render();
+        });
+        render();
+        </script>
+</body>
+</html>
