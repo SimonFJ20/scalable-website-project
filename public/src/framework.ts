@@ -2,8 +2,7 @@
 
 /* General HTML utilities */
 
-export const html = (html: string): string => html.replace(/\r?\n|\r|\s{4}/g, '');
-
+// For general 
 export class DOM {
 
     public static setTitle = (title: string): void => {
@@ -11,35 +10,37 @@ export class DOM {
     }
 
     public static setCssImport = (url: string): void => {
-        document.createElement
+        const newLinkElement = document.createElement('link');
+        newLinkElement.rel = 'stylesheet';
+        newLinkElement.href = url;
+        document.head.appendChild(newLinkElement);
     }
 
 }
+
+// removes whitespace etc
+export const html = (html: string): string => html.replace(/\r?\n|\r|\s{4}/g, '');
+
+let runtimeCallbacks: CallableFunction[];
+export const runtime = (...callbacks: CallableFunction[]) => {
+    for(let i = 0; i < callbacks.length; i++) {
+        runtimeCallbacks.push(callbacks[i]);
+    }
+}
+
+export const execRuntimeScripts = (): void => {
+    runtimeCallbacks.push(() => {alert('execed')})
+    
+    for(let i = 0; i < runtimeCallbacks.length; i++) {
+        runtimeCallbacks[i]();
+    }
+}
+
 
 
 
 /* Miscellaneous utilities */
 
-async function postData(url: string, data: object) {
-    const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(data)
-    });
-    return response.json();
-}
-  
-/*postData('https://example.com/answer', { answer: 42 })
-.then(data => {
-    console.log(data);
-});*/
   
 
 export const makeid = (length: number): string => {
