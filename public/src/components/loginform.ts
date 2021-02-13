@@ -1,29 +1,23 @@
-import { html } from "../framework";
-
-const a = () => {
-    alert('hello');
-}
-
-const run = () => {
-    document.getElementById('login')?.addEventListener('click', (e) => {a()});
-    return this;
-}
+import { DOM, html } from "../framework";
 
 export const Loginform = () => {
-
-    
-
+    DOM.setCssImport('login.css');
     return html(/*html*/`
     <div id="loginpage">
-        <div id="loginform">
-            <input class="loginform" id="username" type="text" placeholder="Username">
+        <form id="loginform">
+            <input class="loginform logintext" id="username" type="text" placeholder="Username">
             <br>
-            <input class="loginform" id="password" type="password" placeholder="Password">
+            <input class="loginform logintext" id="password" type="password" placeholder="Password">
+            <hr>
+            <input class="loginform loginbutton" id="login" type="button" value="Login">
             <br>
-            <input class="loginform" id="login" type="button" value="Login">
-        </div>
+            <div id="regrec">
+                <input class="loginform loginbutton regrec" id="register" type="button" value="Register">
+                <input class="loginform loginbutton regrec" id="recover" type="button" value="Recover">
+            </div>
+
+        </form>
     </div>
     `);
 }
 
-//display:flex;justify-content:center;align-items:center;width:100%;height:90%;

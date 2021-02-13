@@ -6,6 +6,7 @@ import { Todopage } from './routes/todopage';
 
 export const App = (): string => {
     DOM.setTitle('App');
+    DOM.setCssImport('main.css')
 
     switch(window.location.pathname) {
         case '/':

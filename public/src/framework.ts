@@ -9,10 +9,11 @@ export class DOM {
         document.title = title;
     }
 
+    /**URL specifies file in /style/ folder */
     public static setCssImport = (url: string): void => {
         const newLinkElement = document.createElement('link');
         newLinkElement.rel = 'stylesheet';
-        newLinkElement.href = url;
+        newLinkElement.href = './style/' + url;
         document.head.appendChild(newLinkElement);
     }
 
@@ -21,19 +22,17 @@ export class DOM {
 // removes whitespace etc
 export const html = (html: string): string => html.replace(/\r?\n|\r|\s{4}/g, '');
 
-let runtimeCallbacks: CallableFunction[];
-export const runtime = (...callbacks: CallableFunction[]) => {
-    for(let i = 0; i < callbacks.length; i++) {
-        runtimeCallbacks.push(callbacks[i]);
-    }
-}
 
+let runtimeCallbacks: Function[] = [];
+export const runtime = (...callbacks: Function[]): void => {
+    callbacks.forEach((callback) => {
+        runtimeCallbacks.push(callback);
+    })   
+}
 export const execRuntimeScripts = (): void => {
-    runtimeCallbacks.push(() => {alert('execed')})
-    
-    for(let i = 0; i < runtimeCallbacks.length; i++) {
-        runtimeCallbacks[i]();
-    }
+    runtimeCallbacks.forEach((callback) => {
+        callback();
+    })
 }
 
 
