@@ -1,8 +1,12 @@
 import { DOM, html } from "../framework";
+import { Loading } from "./loading";
+
+
 
 export const Loginform = () => {
     DOM.setCssImport('login.css');
     return html(/*html*/`
+    ${Loading()}
     <div id="loginpage">
         <form id="loginform">
             <input class="loginform logintext" id="username" type="text" placeholder="Username">

@@ -17,6 +17,14 @@ export class DOM {
         document.head.appendChild(newLinkElement);
     }
 
+    public static id = (id: string) => {
+        return document.getElementById(id);
+    }
+
+    public static q = (elementQuery: string) => {
+        return document.querySelector(elementQuery);
+    }
+
 }
 
 // removes whitespace etc
