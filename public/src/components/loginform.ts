@@ -4,6 +4,7 @@ import { sendLoginCredentials } from '../ajax';
 import { setClientAuth } from "../auth";
 
 const loginEvent = (): void => {
+    const loginNotFound = <HTMLParagraphElement>DOM.id('loginNotFound');
     const username = <HTMLInputElement>DOM.id('username');
     const password = <HTMLInputElement>DOM.id('password');
     if(username.value != '' && password.value != '') {
@@ -11,10 +12,14 @@ const loginEvent = (): void => {
             if(data.authorized) {
                 setClientAuth();
                 location.reload();
+            }else {
+                loginNotFound.innerText = 'Incorrect Username or Password!';
+                loginNotFound.style.visibility = 'visible';
             }
         })
     }else {
-        alert('You need to make this message pretty')
+        loginNotFound.innerText = 'Please fill in both Username and Password!';
+        loginNotFound.style.visibility = 'visible';
     }
 }
 
@@ -43,6 +48,7 @@ export const Loginform = () => {
             <input class="loginform logintext" id="username" type="text" placeholder="Username">
             <br>
             <input class="loginform logintext" id="password" type="password" placeholder="Password">
+            <p id="loginNotFound">Incorrect Username or Password!</p>
             <hr>
             <input class="loginform loginbutton" id="login" type="button" value="Login">
             <br>
