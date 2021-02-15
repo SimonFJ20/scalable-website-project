@@ -1,10 +1,37 @@
-import { DOM, html } from "../framework";
-import { Loading } from "./loading";
+import { DOM, html, runtime } from "../framework";
+import { Loading, setLoadingState } from "./loading";
+import { sendLoginCredentials } from '../ajax';
 
+const loginEvent = (): void => {
+    const username = <HTMLInputElement>DOM.id('username');
+    const password = <HTMLInputElement>DOM.id('password');
+    if(username.value != '' && password.value != '') {
+        sendLoginCredentials({username: username.value, password: password.value}, (data) => {
+            console.log(data);
+        })
+    }else {
+        alert('You need to make this message pretty')
+    }
+}
 
+const registerEvent = (): void => {
+
+}
+
+const recoverEvent = (): void => {
+
+}
+
+const atRuntime = (): void => {
+    setLoadingState(false);
+    DOM.id('login')?.addEventListener('click', loginEvent);
+    DOM.id('register')?.addEventListener('click', registerEvent);
+    DOM.id('recover')?.addEventListener('click', recoverEvent);
+}
 
 export const Loginform = () => {
     DOM.setCssImport('login.css');
+    runtime(atRuntime);
     return html(/*html*/`
     ${Loading()}
     <div id="loginpage">
