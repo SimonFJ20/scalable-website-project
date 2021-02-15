@@ -1,10 +1,21 @@
-import { html } from "../framework";
+import { removeClientAuth } from "../auth";
+import { DOM, html, runtime } from "../framework";
+
+const topbarProfileButtonEvent = () => {
+    removeClientAuth();
+    location.reload();
+}
 
 class Props {
     authorized: boolean = false;
 }
 
+const atRuntime = () => {
+    DOM.id('topbarProfileButton')?.addEventListener('click', topbarProfileButtonEvent);
+}
+
 export const Topbar = (props: Props) => {
+    runtime(atRuntime);
     if(props.authorized === false) {
         return html(/*html*/`
         <div id="topbar">
@@ -27,12 +38,12 @@ export const Topbar = (props: Props) => {
                 <h1>Framework App</h1>
             </div>
             <div class="public">
-                <a href="/" class="button">Front page</a>
+                <a href="/" class="button">Landing</a>
                 <a href="/feed" class="button">My feed</a>
                 <a href="/friends" class="button">Friends</a>
             </div>
             <div class="private">
-                <a href="/" class="button">My Profile</a>
+                <a href="/" class="button" id="topbarProfileButton">My Profile</a>
             </div>
         </div>
         `);

@@ -1,13 +1,17 @@
 import { DOM, html, runtime } from "../framework";
 import { Loading, setLoadingState } from "./loading";
 import { sendLoginCredentials } from '../ajax';
+import { setClientAuth } from "../auth";
 
 const loginEvent = (): void => {
     const username = <HTMLInputElement>DOM.id('username');
     const password = <HTMLInputElement>DOM.id('password');
     if(username.value != '' && password.value != '') {
         sendLoginCredentials({username: username.value, password: password.value}, (data) => {
-            console.log(data);
+            if(data.authorized) {
+                setClientAuth();
+                location.reload();
+            }
         })
     }else {
         alert('You need to make this message pretty')
