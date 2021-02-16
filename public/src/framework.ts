@@ -44,8 +44,13 @@ export const execRuntimeScripts = (): void => {
  *   Allthough i think it would be better to do without jquery, im lazy
  */
 
-export const get = (url: string, callback: (data: object) => void) => {
-    $.get(url, callback, "json");
+export const get = (url: string, callback: (response: object) => void) => {
+    const settings = {
+        "url": url,
+        "method": "GET",
+        "timeout": 0,
+    };
+    $.ajax(settings).done(callback);
 };
 
 export const post = (url: string, data: object, callback: (response: object) => void) => {
