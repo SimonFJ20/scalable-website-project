@@ -48,7 +48,7 @@ export const get = (url: string, callback: (data: object) => void) => {
     $.get(url, callback, "json");
 };
 
-export const post = (url: string, data: object, callback: (data: object) => void) => {
+export const post = (url: string, data: object, callback: (response: object) => void) => {
     const settings = {
         url: url,
         method: "POST",

@@ -1,15 +1,15 @@
 import { DOM, html, runtime } from "../framework";
 import { Loading, setLoadingState } from "./loading";
-import { sendLoginCredentials } from '../ajax';
-import { setClientAuth } from "../auth";
+import { login, setClientAuth } from "../auth";
 
 const loginEvent = (): void => {
     const loginNotFound = <HTMLParagraphElement>DOM.id('loginNotFound');
     const username = <HTMLInputElement>DOM.id('username');
     const password = <HTMLInputElement>DOM.id('password');
     if(username.value != '' && password.value != '') {
-        sendLoginCredentials({username: username.value, password: password.value}, (data) => {
-            if(data.authorized) {
+        login({username: username.value, password: password.value}, (userLoginResponse) => {
+            if(userLoginResponse.authorized) {
+                
                 setClientAuth();
                 location.reload();
             }else {

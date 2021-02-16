@@ -4,3 +4,4 @@
 .env
 server/.env
 server/*.js
+devstart.bat
