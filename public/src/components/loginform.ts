@@ -9,7 +9,7 @@ const loginEvent = (): void => {
     if(username.value != '' && password.value != '') {
         login({username: username.value, password: password.value}, (userLoginResponse) => {
             if(userLoginResponse.authorized) {
-                
+
                 setClientAuth();
                 location.reload();
             }else {
@@ -36,6 +36,26 @@ const atRuntime = (): void => {
     DOM.id('login')?.addEventListener('click', loginEvent);
     DOM.id('register')?.addEventListener('click', registerEvent);
     DOM.id('recover')?.addEventListener('click', recoverEvent);
+    DOM.id('username')?.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter') {
+            const password = <HTMLInputElement>DOM.id('password');
+            if(password.value == '') {
+                password.focus();
+            }else {
+                loginEvent();
+            }
+        }
+    })
+    DOM.id('password')?.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter') {
+            const username = <HTMLInputElement>DOM.id('username');
+            if(username.value == '') {
+                username.focus();
+            }else {
+                loginEvent();
+            }
+        }
+    })
 }
 
 export const Loginform = () => {
