@@ -18,4 +18,6 @@ server.use(express.static(path.join(__dirname, '../public/dist')))
 
 server.listen(port, () => {
     console.log('Express on', port);
+    //pifan.init(500, 30, 41, false, true);
+    //piled.init();
 });
