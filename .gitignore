@@ -3,5 +3,5 @@
 /public/temp/
 .env
 server/.env
-server/*.js
+server/**/*.js
 devstart.bat
