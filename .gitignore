@@ -1,5 +1,6 @@
 /server/node_modules/
 /public/node_modules/
+/server/package-lock.json
 /public/temp/
 .env
 server/.env

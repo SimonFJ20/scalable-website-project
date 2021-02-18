@@ -16,6 +16,11 @@ const users = [
         username: 'simon',
         password: 'test',
         token: '0'
+    },
+    {
+        username: 'tester',
+        password: '1234',
+        token: '0'
     }
 ]
 

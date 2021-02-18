@@ -6,6 +6,8 @@ import routes from './routes';
 import auth from './api/auth';
 import misc from './api/misc';
 
+
+
 const server = express();
 const port = 80;
 server.use(cors());
