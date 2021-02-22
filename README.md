@@ -1,2 +1,2 @@
 # JSFramework1
-This is a Framework for building website.
+This is a (for now) personal website, not a framework
